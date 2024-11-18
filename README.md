@@ -1,70 +1,182 @@
-# Getting Started with Create React App
+Here’s the **README.md** file text for your project, including the necessary instructions for installing dependencies and running the project:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# File Management System
 
-In the project directory, you can run:
+A simple file management system built with React (frontend) and Node.js (backend) that allows users to:
 
-### `npm start`
+- Create, view, and edit text files.
+- Download files.
+- Store files locally on the server.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+- **Create new files** with a specified name and content.
+- **View files** to see their content.
+- **Edit files** and save the updated content.
+- **Download files** as `.txt` files.
+- Built with **React** (frontend) and **Node.js** (backend).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Project Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Prerequisites**
 
-### `npm run build`
+Before you begin, make sure you have the following installed:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [git](https://git-scm.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **1. Frontend Setup (React)**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
 
-### `npm run eject`
+2. Install required dependencies:
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Start the React development server:
+   ```bash
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This will start the React frontend application on `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **2. Backend Setup (Node.js)**
 
-## Learn More
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install required dependencies:
+   ```bash
+   npm install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Create a folder named `uploads` in the `backend` directory to store the files:
+   ```bash
+   mkdir uploads
+   ```
 
-### Code Splitting
+4. Start the Node.js backend server:
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This will start the backend API on `http://localhost:5000`.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## API Endpoints
 
-### Making a Progressive Web App
+The following API endpoints are available:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **POST** `/api/create-file` - Create a new file with a given name and content.
+  - **Request Body**: `{ "filename": "file.txt", "content": "File content" }`
+  - **Response**: Success or error message.
 
-### Advanced Configuration
+- **GET** `/api/files` - Retrieve a list of all stored files.
+  - **Response**: `{ "files": ["file1.txt", "file2.txt", ...] }`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **GET** `/api/files/:filename` - Retrieve the content of a specific file.
+  - **Response**: `{ "content": "File content" }`
 
-### Deployment
+- **PUT** `/api/edit-file/:filename` - Edit the content of an existing file.
+  - **Request Body**: `{ "content": "Updated content" }`
+  - **Response**: Success or error message.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **GET** `/api/download/:filename` - Download the file as `.txt`.
+  - **Response**: Downloads the specified file.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## File Structure
+
+The file structure for both frontend and backend is as follows:
+
+```
+frontend/
+├── src/
+│   ├── components/
+│   │   ├── FileCreationForm.jsx
+│   │   ├── FileListViewer.jsx
+│   │   ├── FileEditor.jsx
+│   ├── App.jsx
+│   ├── api.js
+│   ├── index.js
+│   └── App.css
+backend/
+├── controllers/
+│   └── fileController.js
+├── routes/
+│   └── fileRoutes.js
+├── uploads/
+├── server.js
+├── package.json
+```
+
+---
+
+## Running the Project Locally
+
+1. **Start the Backend Server**:  
+   In the `backend` folder, run:
+   ```bash
+   npm start
+   ```
+
+2. **Start the Frontend Server**:  
+   In the `frontend` folder, run:
+   ```bash
+   npm start
+   ```
+
+3. Open your browser and go to `http://localhost:3000` to use the file management system.
+
+---
+
+## Technologies Used
+
+- **Frontend**: React, Axios
+- **Backend**: Node.js, Express, fs (file system)
+- **Styling**: Custom CSS
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Troubleshooting
+
+- If the backend or frontend doesn't run as expected, ensure that the **`uploads/` folder** exists in the backend directory.
+- Make sure there are no conflicting ports. The frontend runs on port `3000`, and the backend runs on port `5000` by default.
+
+---
+
+### **Required Packages**
+
+For **Frontend** (React):
+```bash
+npm install react react-dom axios
+```
+
+For **Backend** (Node.js):
+```bash
+npm install express cors
+```
+
+---
+
+This README file should help users set up the project and get it running on their local machine. Let me know if you need any further details or adjustments!
