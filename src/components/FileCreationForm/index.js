@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import API from "../../api";
-
 import "./style.css";
+import API from "../../api";
 
 const FileCreationForm = ({ refreshFiles }) => {
   const [filename, setFilename] = useState("");
@@ -11,7 +10,7 @@ const FileCreationForm = ({ refreshFiles }) => {
     try {
       await API.post("/create-file", { filename, content });
       alert("File created successfully!");
-      refreshFiles(); // Refresh file list after creation
+      refreshFiles();
       setFilename("");
       setContent("");
     } catch (error) {
@@ -20,7 +19,7 @@ const FileCreationForm = ({ refreshFiles }) => {
   };
 
   return (
-    <div>
+    <div className="file-creation-form">
       <h2>Create New File</h2>
       <input
         type="text"

@@ -1,13 +1,16 @@
 .app-container {
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
+  padding: 40px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
-  max-width: 800px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .app-container h1 {
+  font-size: 32px;
   text-align: center;
-  font-size: 26px;
-  margin-bottom: 20px;
   color: #333;
+  margin-bottom: 40px;
 }

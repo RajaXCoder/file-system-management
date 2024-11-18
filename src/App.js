@@ -10,11 +10,11 @@ const App = () => {
   const [refreshKey, setRefreshKey] = useState(0);
 
   const refreshFiles = () => {
-    setRefreshKey((prevKey) => prevKey + 1);
+    setRefreshKey((prev) => prev + 1);
   };
 
   return (
-    <div>
+    <div className="app-container">
       <h1>File Management System</h1>
       {!editingFile && (
         <>

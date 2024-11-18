@@ -1,36 +1,41 @@
+/* Style the File Creation Form like a card */
 .file-creation-form {
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ddd;
+  padding: 25px;
+  background-color: #fff;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .file-creation-form h2 {
+  font-size: 24px;
   margin-bottom: 15px;
-  font-size: 20px;
+  color: #333;
 }
 
 .file-creation-form input,
 .file-creation-form textarea {
-  display: block;
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 15px;
   font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+}
+
+.file-creation-form textarea {
+  height: 200px;
+  resize: vertical;
 }
 
 .file-creation-form button {
-  padding: 10px 15px;
-  background-color: #007bff;
+  background-color: #28a745;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 12px;
 }
 
 .file-creation-form button:hover {
-  background-color: #0056b3;
+  background-color: #218838;
 }

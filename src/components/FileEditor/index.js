@@ -29,14 +29,16 @@ const FileEditor = ({ editingFile, closeEditor }) => {
   };
 
   return (
-    <div>
+    <div className="file-editor">
       <h2>Editing: {editingFile}</h2>
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
       ></textarea>
       <button onClick={handleSave}>Save</button>
-      <button onClick={closeEditor}>Cancel</button>
+      <button className="cancel" onClick={closeEditor}>
+        Cancel
+      </button>
     </div>
   );
 };

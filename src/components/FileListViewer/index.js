@@ -3,42 +3,39 @@ import API from "../../api";
 
 import "./style.css";
 
-const FileEditor = ({ editingFile, closeEditor }) => {
-  const [content, setContent] = useState("");
+const FileListViewer = ({ setEditingFile, refreshKey }) => {
+  const [files, setFiles] = useState([]);
 
   useEffect(() => {
-    const fetchFileContent = async () => {
+    const fetchFiles = async () => {
       try {
-        const response = await API.get(`/files/${editingFile}`);
-        setContent(response.data.content);
+        const response = await API.get("/files");
+        setFiles(response.data.files);
       } catch (error) {
-        alert("Error fetching file content.");
+        console.error("Error fetching file list:", error);
       }
     };
-    fetchFileContent();
-  }, [editingFile]);
+    fetchFiles();
+  }, [refreshKey]);
 
-  const handleSave = async () => {
-    try {
-      await API.put(`/edit-file/${editingFile}`, { content });
-      alert("File saved successfully!");
-      closeEditor();
-    } catch (error) {
-      alert("Error saving file.");
-    }
+  const handleDownload = (filename) => {
+    window.open(`${API.defaults.baseURL}/download/${filename}`);
   };
 
   return (
-    <div>
-      <h2>Editing: {editingFile}</h2>
-      <textarea
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-      ></textarea>
-      <button onClick={handleSave}>Save</button>
-      <button onClick={closeEditor}>Cancel</button>
+    <div className="file-list-viewer">
+      <h2>Files</h2>
+      <ul>
+        {files.map((file) => (
+          <li key={file}>
+            {file}
+            <button onClick={() => setEditingFile(file)}>View/Edit</button>
+            <button onClick={() => handleDownload(file)}>Download</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default FileEditor;
+export default FileListViewer;
