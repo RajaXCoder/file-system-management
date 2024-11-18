@@ -1,0 +1,37 @@
+.file-list-viewer {
+  margin: 20px;
+}
+
+.file-list-viewer h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.file-list-viewer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.file-list-viewer li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.file-list-viewer li button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 12px;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.file-list-viewer li button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import API from "../../api";
 
+import "./style.css";
+
 const FileCreationForm = ({ refreshFiles }) => {
   const [filename, setFilename] = useState("");
   const [content, setContent] = useState("");

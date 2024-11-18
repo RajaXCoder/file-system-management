@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import API from "../../api";
 
+import "./style.css";
+
 const FileEditor = ({ editingFile, closeEditor }) => {
   const [content, setContent] = useState("");
 

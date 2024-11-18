@@ -1,0 +1,36 @@
+.file-creation-form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.file-creation-form h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.file-creation-form input,
+.file-creation-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.file-creation-form button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.file-creation-form button:hover {
+  background-color: #0056b3;
+}
